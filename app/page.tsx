@@ -80,9 +80,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10">Kategorier:</div>
+          {/* <div className="mt-10">Kategorier:</div>
           <div>Vin - rött vin - Dokumenterade röda viner och hur de smakar</div>
-          <div>Mat - bakverk, vardag, </div>
+          <div>Mat - bakverk, vardag, </div> */}
+
+          <div className="mt-20 leading-loose tracking-wide font-bold">
+            <div>Välkommen!</div>
+            <div>Det här är min vinblogg.</div>
+            <div>Men det är inte inte bara en vinblogg,</div>
+            <div>utan  också en Matblogg. Här serveras allt mellan</div>
+            <div>vin, mat, desserter, bakverk och idéer. Innehållet är möjligen </div>
+            <div>enögt, då jag har mina favoritsmaker. </div>
+          </div>
         </div>
       </div>
     </main>

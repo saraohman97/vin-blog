@@ -14,7 +14,7 @@ const Vinkallaren = () => {
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold max-w-screen-lg mx-auto">
         Hemgjorda glassbåtar
       </h1>
-      <h2 className="text-xl pb-10 text-center font-bold font-serif">
+      <h2 className="text-xl pb-10 pt-4 text-center font-bold font-serif">
         Dessert
       </h2>
 

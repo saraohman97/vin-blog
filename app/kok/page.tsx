@@ -8,7 +8,7 @@ export default function Kok() {
       <DarkNavbar />
       {/* HERO */}
       <Image
-        src="/hero-2.jpg"
+        src="/hero-3.jpg"
         alt=""
         width={2000}
         height={2000}

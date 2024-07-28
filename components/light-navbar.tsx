@@ -50,7 +50,7 @@ const LightNavbar = () => {
           </div>
         </div>
 
-        <div className="border h-fit max-md:hidden px-8 py-1 flex items-center gap-2 rounded-3xl hover:bg-black/10 cursor-pointer">
+        <div className="border h-fit bg-white max-md:hidden px-8 py-1 flex items-center gap-2 rounded-3xl hover:bg-black/10 cursor-pointer">
           <MdOutlinePersonAddAlt /> Anställ mig
         </div>
       </div>
