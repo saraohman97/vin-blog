@@ -1,9 +1,11 @@
+import DarkNavbar from "@/components/dark-navbar";
 import Recipe from "@/components/recipe";
 import Image from "next/image";
 
 export default function Kok() {
   return (
     <div>
+      <DarkNavbar />
       {/* HERO */}
       <Image
         src="/hero-2.jpg"

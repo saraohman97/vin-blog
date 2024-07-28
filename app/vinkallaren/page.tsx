@@ -1,8 +1,10 @@
+import LightNavbar from "@/components/light-navbar";
 import Image from "next/image";
 
 const Vinkallaren = () => {
   return (
     <div className="bg-gray-50">
+      <LightNavbar />
       {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold">

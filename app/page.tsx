@@ -1,3 +1,4 @@
+import DarkNavbar from "@/components/dark-navbar";
 import Item from "@/components/item";
 import Image from "next/image";
 // laktris: bg-[#1B1212]
@@ -6,6 +7,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
+      <DarkNavbar />
+      
       {/* HERO */}
       <Image
         src="/hero.jpg"
