@@ -27,9 +27,9 @@ const Navbar = () => {
           </Link>
 
           <div className="flex gap-4 items-center">
-            <div className="hover:underline underline-offset-8 hover:text-white/70 cursor-pointer">
+            <Link href='/vinkallaren' className="hover:underline underline-offset-8 hover:text-white/70 cursor-pointer">
               Vinkällare
-            </div>
+            </Link>
             <Link
               href="/kok"
               className="hover:underline underline-offset-8 hover:text-white/70 cursor-pointer"
@@ -40,9 +40,9 @@ const Navbar = () => {
               Tillfällen <BiChevronDown className="group-hover:hidden" />
               <BiChevronUp className="invisible group-hover:visible" />
               <div className="invisible group-hover:visible absolute shadow top-6 right-0 bg-white min-w-40 text-gray-800">
-                <div className="py-2 px-4 flex items-center gap-1 border-t hover:text-red-900 cursor-pointer transition-colors duration-300">
+                <Link href='/jul' className="py-2 px-4 flex items-center gap-1 border-t hover:text-red-900 cursor-pointer transition-colors duration-300">
                   <TbChristmasBall /> Jul
-                </div>
+                </Link>
                 <div className="py-2 px-4 flex items-center gap-1 border-t hover:text-red-900 cursor-pointer transition-colors duration-300">
                   <GiEasterEgg /> Påsk
                 </div>

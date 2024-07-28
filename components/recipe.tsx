@@ -1,20 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegStar, FaStar } from "react-icons/fa";
-// laktris: bg-[#2f1d1d] 
-// svart: bg-[#101010]
 
-const Item = () => {
+const Recipe = () => {
   return (
-    <Link href='/vinkallaren' className="bg-gray-50 rounded-xl text-black md:w-48">
+    <Link href="/id" className="bg-gray-50 rounded-xl text-black md:w-48">
       <Image
-        src="/wine.png"
+        src="/article.webp"
         alt=""
         width={500}
         height={500}
-        className="max-h-72 object-contain rounded-t-xl pt-4 hover:p-0 transition-all duration-300"
+        className="max-h-72 object-contain rounded-t-xl hover:p-0 transition-all duration-300"
       />
-      <h3 className="p-4 pb-0 font-bold">Villa Puccini</h3>
+      <h3 className="p-4 pb-0 font-bold">Hemgjorda glassbåtar</h3>
       <div className="flex gap-2 p-4 pt-2">
         <FaStar size={25} />
         <FaStar size={25} />
@@ -26,4 +24,4 @@ const Item = () => {
   );
 };
 
-export default Item;
+export default Recipe;

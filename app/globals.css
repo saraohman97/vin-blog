@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap');
+
+.playwrite-at-400 {
+  font-family: "Playwrite AT", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +39,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
