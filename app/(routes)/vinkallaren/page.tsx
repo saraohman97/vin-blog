@@ -49,9 +49,6 @@ const Vinkallaren = () => {
               Kryddigt & mustigt
             </div>
             <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              99 kr
-            </div>
-            <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
               Italien
             </div>
           </div>
@@ -71,6 +68,7 @@ const Vinkallaren = () => {
           {/* 
           <div className="font-bold mb-4">Pris: 99 kr</div>
           <div className="font-bold mb-4">Varifrån: Italien</div> */}
+          <div className="font-bold mb-4">Pris: 99 KR</div>
           <div className="font-bold mb-4">Druva: Xdruva</div>
           <div className="font-bold mb-4">Andra vin av samma märke: <span className="underline underline-offset-4 cursor-pointer">Chianti</span></div>
 

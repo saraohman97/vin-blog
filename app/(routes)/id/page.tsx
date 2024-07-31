@@ -8,9 +8,10 @@ import { IoCloudDownloadOutline } from "react-icons/io5";
 const Vinkallaren = () => {
   return (
     <div className="bg-gray-50">
+      {/* NAVBAR */}
       <LightNavbar />
-      {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
+      {/* HEADING */}
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold max-w-screen-lg mx-auto">
         Hemgjorda glassbåtar
       </h1>
@@ -18,6 +19,7 @@ const Vinkallaren = () => {
         Dessert
       </h2>
 
+      {/* IMAGES */}
       <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
         <div className="flex max-sm:flex-col w-full">
           <Image
@@ -44,17 +46,9 @@ const Vinkallaren = () => {
             />
           </div>
         </div>
-        <div>
-          {/* <div className="text-2xl font-bold text-red-800">Om dessert</div> */}
-          {/* <div className="my-4 flex flex-wrap gap-4">
-            <div className="border-2 cursor-pointer bg-white hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              Dessert
-            </div>
-            <div className="border-2 cursor-pointer bg-white hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              15 min
-            </div>
-          </div> */}
 
+        {/* TEXT MAIN */}
+        <div>
           <div className="text-center flex gap-8">
             <div>30 min</div>
             <div>|</div>
@@ -86,7 +80,6 @@ const Vinkallaren = () => {
 
           <div className="text-2xl font-bold text-red-800">Gör såhär</div>
           <ol className="space-y-4 list-decimal text-gray-700 ml-10">
-            {/* <div className="font-bold font-serif text-xl mb-3">Gör såhär</div> */}
             <li>
               Ställ ut tortillaskålarna på en bricka som får plats i frysen.
             </li>
@@ -105,6 +98,14 @@ const Vinkallaren = () => {
               i chokladen. Servera direkt eller frys in.
             </li>
           </ol>
+
+          <Image
+            src="/heart-text.png"
+            alt=""
+            width={1000}
+            height={1000}
+            className="w-60 object-contain m-10"
+          />
         </div>
       </div>
     </div>
