@@ -1,5 +1,6 @@
 // main: bg-blue-900
 // main: bg-slate-800
+// darkmode: 9,9,11 RGB, 09090B hexcode
 
 import WineForm from "./components/wine-form";
 import DashboardNavbar from "./components/dashboard-navbar";
@@ -8,14 +9,14 @@ import NavigationFeeds from "./components/navigation-feeds";
 
 const Dashboard = () => {
   return (
-    <div className="relative bg-gray-900 min-h-screen text-gray-50">
+    <div className="relative min-h-screen text-gray-50">
       <DashboardNavbar />
 
-      <div className="bg-slate-800 fixed w-screen-[2/3] left-80 top-0 bottom-0 right-0 rounded-l-2xl p-10">
+      <div className="bg-slate-900 fixed w-screen-[2/3] left-80 top-0 bottom-0 right-0 rounded-l-2xl p-10">
         <Header />
         <div className="flex">
-        <WineForm />
-            <NavigationFeeds />
+          <WineForm />
+          <NavigationFeeds />
         </div>
 
         {/* CMS */}
