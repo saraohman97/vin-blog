@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@radix-ui/react-label";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -28,6 +27,10 @@ import {
 } from "@/components/ui/select";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Card, CardContent } from "@/components/ui/card";
+import { RiImageAddLine } from "react-icons/ri";
+import { Label } from "@/components/ui/label";
+import WineClient from "./client";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -96,11 +99,22 @@ const WineForm = () => {
 
   return (
     <div className="w-full">
-      <h1 className="mb-4 text-2xl font-bold">Lägg till vin</h1>
-
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="grid grid-cols-2 gap-10"
+        >
           <div className="space-y-8">
+            <h1 className="mb-4 text-2xl font-bold">Lägg till vin</h1>
+            <div className="space-y-2 w-full">
+              <Label>Image</Label>
+              <Card>
+                <CardContent className="flex items-center justify-center h-60 text-white/70">
+                  <RiImageAddLine size={30} />
+                </CardContent>
+              </Card>
+            </div>
+
             <div className="flex gap-2">
               <FormField
                 control={form.control}
@@ -140,6 +154,7 @@ const WineForm = () => {
                     <Textarea
                       placeholder="Skriv text här..."
                       className="max-w-[500px]"
+                      rows={15}
                       {...field}
                     />
                   </FormControl>
@@ -212,28 +227,6 @@ const WineForm = () => {
               )}
             />
 
-            {/* <ToggleGroup type="multiple">
-            <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        <Bold className="h-4 w-4" />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        <Italic className="h-4 w-4" />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="underline" aria-label="Toggle underline">
-        <Underline className="h-4 w-4" />
-      </ToggleGroupItem>
-          </ToggleGroup> */}
-            {/* <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Smak" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select> */}
-
             <FormField
               control={form.control}
               name="flavour"
@@ -242,7 +235,7 @@ const WineForm = () => {
                   <div className="mb-4">
                     <FormLabel className="text-base">Smaker</FormLabel>
                     <FormDescription>
-                      Välj de smaker som matchade vinet. 
+                      Välj de smaker som matchade vinet.
                     </FormDescription>
                   </div>
                   {flavour.map((item) => (
@@ -286,7 +279,11 @@ const WineForm = () => {
             <Button type="submit">Submit</Button>
           </div>
 
-          <div>Image</div>
+          <div>
+            <h1 className="mb-4 text-2xl font-bold">Vinlista</h1>
+
+            <WineClient />
+          </div>
         </form>
       </Form>
 

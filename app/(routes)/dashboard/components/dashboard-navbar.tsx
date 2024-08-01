@@ -24,13 +24,13 @@ const DashboardNavbar = () => {
       </div>
 
       {/* PROFILE */}
-      <div className="fixed bottom-8 left-52 z-40">
+      <div className="fixed bottom-6 left-60 z-40">
         <Image
           src="/hero.jpg"
           alt=""
           width={500}
           height={500}
-          className="object-cover rounded-full h-20 w-20 border-4 border-blue-900 shadow-md shadow-blue-500"
+          className="object-cover rounded-full h-14 w-14 border-4 border-blue-900 shadow-md shadow-blue-500"
         />
       </div>
     </div>
