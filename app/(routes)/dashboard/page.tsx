@@ -6,26 +6,24 @@ import WineForm from "./components/wine-form";
 import DashboardNavbar from "./components/dashboard-navbar";
 import Header from "./components/header";
 import NavigationFeeds from "./components/navigation-feeds";
+import NavigationTabs from "./components/navigation-tabs";
 
 const Dashboard = () => {
   return (
-    <div className="relative min-h-screen text-gray-50">
+    <div className="relative h-screen text-gray-50">
       <DashboardNavbar />
 
-      <div className="bg-slate-900 fixed w-screen-[2/3] left-80 top-0 bottom-0 right-0 rounded-l-2xl p-10">
-        <Header />
-        <div className="flex">
-          <WineForm />
-          <NavigationFeeds />
-        </div>
-
-        {/* CMS */}
-        {/* <div>
-          <div className="bg-slate-500 rounded-xl p-10 shadow-xl shadow-slate-600">
-            kub
+      <div className="fixed left-80 top-0 bottom-0 right-0 rounded-l-2xl h-full">
+        <NavigationTabs />
+        <div className="flex items-start bg-slate-900 p-10 pb-20 h-full overflow-y-scroll scroll-smooth">
+          <div>
+            <Header />
+            <WineForm />
           </div>
-        </div> */}
+          {/* <NavigationFeeds /> */}
+        </div>
       </div>
+      {/* <NavigationFeeds /> */}
     </div>
   );
 };
