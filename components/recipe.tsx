@@ -10,7 +10,7 @@ const Recipe = () => {
         alt=""
         width={500}
         height={500}
-        className="max-h-72 object-contain rounded-t-xl hover:p-0 transition-all duration-300"
+        className="h-80 object-cover rounded-t-xl hover:p-0 transition-all duration-300"
       />
       <h3 className="p-4 pb-0 font-bold">Hemgjorda glassbåtar</h3>
       <div className="flex gap-2 p-4 pt-2">

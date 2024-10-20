@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { GiEasterEgg, GiOakLeaf } from "react-icons/gi";
 import { MdOutlinePersonAddAlt } from "react-icons/md";

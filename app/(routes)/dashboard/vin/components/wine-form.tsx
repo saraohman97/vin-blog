@@ -99,17 +99,17 @@ const WineForm = () => {
 
   return (
     <div className="w-full">
+        <h1 className="mb-4 text-2xl font-bold">Lägg till vin</h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-2 gap-10"
+          className="flex flex-col"
         >
-          <div className="space-y-8">
-            <h1 className="mb-4 text-2xl font-bold">Lägg till vin</h1>
+          <div className="space-y-8 w-full">
             <div className="space-y-2 w-full">
               <Label>Image</Label>
               <Card>
-                <CardContent className="flex items-center justify-center h-60 text-white/70">
+                <CardContent className="flex items-center justify-center h-40 text-white/70">
                   <RiImageAddLine size={30} />
                 </CardContent>
               </Card>
@@ -162,7 +162,7 @@ const WineForm = () => {
                 </FormItem>
               )}
             />
-
+</div> <div className="space-y-8 w-full">
             <div className="flex items-center gap-2">
               <Select>
                 <SelectTrigger className="w-full">
@@ -279,11 +279,11 @@ const WineForm = () => {
             <Button type="submit">Submit</Button>
           </div>
 
-          <div>
+          {/* <div>
             <h1 className="mb-4 text-2xl font-bold">Vinlista</h1>
 
             <WineClient />
-          </div>
+          </div> */}
         </form>
       </Form>
 

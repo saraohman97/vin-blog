@@ -4,7 +4,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 
 const Vinkallaren = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 text-gray-900">
       <LightNavbar />
       {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
@@ -14,28 +14,28 @@ const Vinkallaren = () => {
       <h2 className="text-xl pb-4 text-center font-bold font-serif">Toscana</h2>
 
       <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
-        <div className="flex max-sm:flex-col">
+        <div className="flex max-md:flex-col max-md:gap-2">
           <Image
             src="/wine.png"
             alt=""
             width={1000}
             height={1000}
-            className="max-h-[1000px] bg-white object-contain border-4 mr-4 border-red-100 w-full py-10 rounded-xl"
+            className="max-h-96 md:max-h-[1000px] bg-white object-contain border-4 mr-4 border-red-100 w-full py-10 rounded-xl"
           />
-          <div>
+          <div className="max-md:flex max-md:w-full max-md:gap-2">
             <Image
               src="/wine.png"
               alt=""
               width={1000}
               height={1000}
-              className="object-contain bg-white border-4 mb-4 border-red-100 w-fit py-10 rounded-xl max-h-96"
+              className="object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
             />
             <Image
               src="/wine.png"
               alt=""
               width={1000}
               height={1000}
-              className="object-contain bg-white border-4 border-red-100 w-fit py-10 rounded-xl max-h-96"
+              className="object-contain bg-white border-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
             />
           </div>
         </div>

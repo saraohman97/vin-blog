@@ -7,7 +7,7 @@ import { IoCloudDownloadOutline } from "react-icons/io5";
 
 const Vinkallaren = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 text-gray-900">
       {/* NAVBAR */}
       <LightNavbar />
 

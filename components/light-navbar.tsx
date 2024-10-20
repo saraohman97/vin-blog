@@ -9,7 +9,7 @@ import { TbBeach, TbChristmasBall } from "react-icons/tb";
 const LightNavbar = () => {
   return (
     <div
-      className={`fixed top-0 w-full z-40 text-black bg-gray-50
+      className={`fixed top-0 w-full z-40 text-black bg-transparent
       `}
     >
       <div className="h-14 flex max-md:flex-col max-md:items-start items-center justify-between max-w-screen-2xl mx-auto p-4 font-serif">
@@ -50,7 +50,7 @@ const LightNavbar = () => {
           </div>
         </div>
 
-        <div className="border h-fit bg-white max-md:hidden px-8 py-1 flex items-center gap-2 rounded-3xl hover:bg-black/10 cursor-pointer">
+        <div className="border border-black/30 h-fit bg-transparent max-md:hidden px-8 py-1 flex items-center gap-2 rounded-3xl hover:bg-black/10 cursor-pointer">
           <MdOutlinePersonAddAlt /> Anställ mig
         </div>
       </div>
