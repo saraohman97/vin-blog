@@ -21,7 +21,7 @@ const Navbar = () => {
     {
       href: `/dashboard/wines`,
       label: "Wines",
-      active: pathname === `/dashboard/wines`,
+      active: pathname === `/dashboard/wines` || `/dashboard/wines/new`,
     },
   ];
 

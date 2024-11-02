@@ -70,11 +70,8 @@ export const WineForm = () => {
   const router = useRouter();
   const { toast } = useToast();
 
-  const [initialData, setInitialData] = useState(true);
   const [open, setOpen] = useState(false); // <-- For Alert modal
   const [loading, setLoading] = useState(false);
-
-  const title = initialData ? "Edit the wine list" : "Create new wine item";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -111,23 +108,13 @@ export const WineForm = () => {
 
   return (
     <>
-      <div className="flex justify-between">
-        <Heading title={title} description="write a description" />
-        {initialData && (
-          <Button
-            disabled={loading}
-            variant="destructive"
-            size="icon"
-            onClick={() => setOpen(true)}
-          >
-            <Trash />
-          </Button>
-        )}
-        {open && "Ska api model"}
-      </div>
+      <Heading title="Wine" description="Create a new wine item" />
+      {/* <Separator className="-mt-4" /> */}
+    {/* <div className="text-gray-500 mb-10 mt-2 text-xs">list of wines {">"} new wine</div> */}
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 py-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* LABEL AND BRAND */}
           <div className="max-md:space-y-4 md:flex items-center gap-10 w-full">
             <FormField
               control={form.control}
@@ -162,6 +149,7 @@ export const WineForm = () => {
             />
           </div>
 
+          {/* DESCRIPTION */}
           <FormField
             control={form.control}
             name="description"
@@ -184,6 +172,7 @@ export const WineForm = () => {
 
           <Separator />
 
+          {/* COLOR AND FLAVOR */}
           <div className="flex max-md:flex-col gap-6 md:gap-20 justify-start items-start">
             <FormField
               control={form.control}
@@ -256,6 +245,7 @@ export const WineForm = () => {
 
           <Separator />
 
+          {/* COUNTRIES, GRAPE, PRICE AND REVIEW */}
           <div className="flex flex-wrap items-center gap-6 md:gap-10">
             <FormField
               control={form.control}
@@ -411,6 +401,7 @@ export const WineForm = () => {
                   <FormLabel>Review</FormLabel>
                   <FormControl>
                     <Input placeholder="3" {...field} />
+                    {/* <Review value={field.value.map(review)} /> */}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -418,12 +409,12 @@ export const WineForm = () => {
             />
           </div>
 
+          {/* IMAGES */}
           <FormField
             control={form.control}
             name="images"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Image</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value.map((image) => image.url)}

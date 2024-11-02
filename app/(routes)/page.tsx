@@ -1,14 +1,18 @@
+import getWines from "@/actions/getWines";
 import DarkNavbar from "@/components/dark-navbar";
-import Item from "@/components/item";
+import WineItem from "@/components/wine-item";
+import Item from "@/components/wine-item";
 import Image from "next/image";
 // laktris: bg-[#1B1212]
 // black: bg-[#0b0b0b]
 
-export default function Home() {
+export default async function Home() {
+  const wines = await getWines();
+
   return (
     <main>
       <DarkNavbar />
-      
+
       {/* HERO */}
       <Image
         src="/hero.jpg"
@@ -32,17 +36,15 @@ export default function Home() {
           <div className="flex max-md:flex-col-reverse gap-10">
             {/* MAIN */}
             <div className="flex flex-wrap gap-10 w-full">
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
+              {wines.length ? (
+                <>
+                  {wines.map((item) => {
+                    return <WineItem key={item.id} item={item} />;
+                  })}
+                </>
+              ) : (
+                "No posts"
+              )}
             </div>
 
             {/* SIDEBAR */}
@@ -54,12 +56,8 @@ export default function Home() {
                 placeholder="Namn / datum"
                 className="h-10 w-full font-serif bg-transparent px-4 border rounded-full outline-none hover:bg-gray-50 mb-4"
               />
-              {/* <button className="h-10 w-10 flex items-center justify-center text-sm font-thin">
-                  SÖK
-                </button> */}
               {/* </div> */}
 
-              {/* <h3 className="mb-2 font-serif">Tips</h3> */}
               <div className="flex flex-wrap gap-2">
                 <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
                   Barolo
@@ -84,12 +82,15 @@ export default function Home() {
           <div>Vin - rött vin - Dokumenterade röda viner och hur de smakar</div>
           <div>Mat - bakverk, vardag, </div> */}
 
+          {/* FOOTER */}
           <div className="mt-20 leading-loose tracking-wide font-bold">
             <div>Välkommen!</div>
             <div>Det här är min vinblogg.</div>
             <div>Men det är inte inte bara en vinblogg,</div>
-            <div>utan  också en Matblogg. Här serveras allt mellan</div>
-            <div>vin, mat, desserter, bakverk och idéer. Innehållet är möjligen </div>
+            <div>utan också en Matblogg. Här serveras allt mellan</div>
+            <div>
+              vin, mat, desserter, bakverk och idéer. Innehållet är möjligen{" "}
+            </div>
             <div>enögt, då jag har mina favoritsmaker. </div>
           </div>
         </div>

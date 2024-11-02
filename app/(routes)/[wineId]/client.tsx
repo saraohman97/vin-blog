@@ -1,22 +1,32 @@
+"use client";
+
 import LightNavbar from "@/components/light-navbar";
+import { Wine } from "@/types";
 import Image from "next/image";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
-const Vinkallaren = () => {
+interface WineProps {
+  //   images: ImageType[];
+  item: Wine | null;
+}
+
+const SingleWineClient: React.FC<WineProps> = ({ item }) => {
   return (
     <div className="bg-gray-50 text-gray-900">
       <LightNavbar />
       {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold">
-        Villa Puccini
+        {item?.brand}
       </h1>
-      <h2 className="text-xl pb-4 text-center font-bold font-serif">Toscana</h2>
+      <h2 className="text-xl pb-4 text-center font-bold font-serif">
+        {item?.label}
+      </h2>
 
       <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
         <div className="flex max-md:flex-col max-md:gap-2">
           <Image
-            src="/wine.png"
+            src={item?.images?.[0]?.url}
             alt=""
             width={1000}
             height={1000}
@@ -24,14 +34,14 @@ const Vinkallaren = () => {
           />
           <div className="max-md:flex max-md:w-full max-md:gap-2">
             <Image
-              src="/wine.png"
+              src={item?.images?.[1]?.url || item?.images?.[0]?.url}
               alt=""
               width={1000}
               height={1000}
               className="object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
             />
             <Image
-              src="/wine.png"
+              src={item?.images?.[2]?.url || item?.images?.[0]?.url}
               alt=""
               width={1000}
               height={1000}
@@ -42,35 +52,42 @@ const Vinkallaren = () => {
         <div>
           <div className="text-2xl font-bold text-red-800">Om vinet</div>
           <div className="my-4 flex flex-wrap gap-4">
-            <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              Rött vin
-            </div>
-            <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              Kryddigt & mustigt
-            </div>
-            <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
-              Italien
-            </div>
+            {item?.color && (
+              <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
+                {item?.color}
+              </div>
+            )}
+            {item?.flavor && (
+              <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
+                {item?.flavor}
+              </div>
+            )}
+            {item?.country && (
+              <div className="border-2 cursor-pointer hover:bg-red-200 hover:border-transparent border-gray-800 text-gray-800 rounded-full py-2 px-6 w-fit">
+                {item?.country}
+              </div>
+            )}
           </div>
 
           <div className="font-light mb-4">
-            Familjen Castallini odlar vin på cirka 1 000 hektar i Maremma,
-            Chianti och Chianti Classico. Villa Puccini är producenten
-            Castellanis hyllning till kompositören Giacomo Puccini som vid förra
-            sekelskiftet komponerade operor som Tosca, Madame Butterfly och
-            Boheme. Puccini bodde i Villa Toscana inte långt från Castellanis
-            ägor.{" "}
+            {item?.description} {" "}
             <span className="text-red-300 cursor-pointer underline underline-offset-4 font-bold">
               Läs mer på www.website.com
             </span>
           </div>
 
-          {/* 
-          <div className="font-bold mb-4">Pris: 99 kr</div>
-          <div className="font-bold mb-4">Varifrån: Italien</div> */}
-          <div className="font-bold mb-4">Pris: 99 KR</div>
-          <div className="font-bold mb-4">Druva: Xdruva</div>
-          <div className="font-bold mb-4">Andra vin av samma märke: <span className="underline underline-offset-4 cursor-pointer">Chianti</span></div>
+          {item?.price && (
+            <div className="font-bold mb-4">Pris: {item?.price} KR</div>
+          )}
+          {item?.grape && (
+            <div className="font-bold mb-4">Druva: {item?.grape}</div>
+          )}
+          <div className="font-bold mb-4">
+            Andra vin av samma märke: {" "}
+            <span className="underline underline-offset-4 cursor-pointer">
+              Chianti
+            </span>
+          </div>
 
           <div className="flex gap-2">
             <FaStar size={25} />
@@ -85,4 +102,4 @@ const Vinkallaren = () => {
   );
 };
 
-export default Vinkallaren;
+export default SingleWineClient;

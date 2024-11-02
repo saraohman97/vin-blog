@@ -18,7 +18,7 @@ const WinePage = async ({
 // <--- This is for the edit page. 
 
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div className="max-w-screen-lg mx-auto lg:py-10">
       {/* <Heading title="Wines" description="Add another wine" /> */}
       {/* <div>
         <h3 className=" font-bold text-lg font-sans mt-10">Add wine</h3>
