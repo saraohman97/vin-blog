@@ -8,9 +8,9 @@ export default async function DashboardLayout({
   //redirect from next/navigation = protected routes
   //eventually sidebar x menu x navbar
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto min-h-screen">
       <Navbar />
-      <div className="p-4 bg-white">{children}</div>
+      <div className="p-4">{children}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const DashboardPage = () => {
     return ( 
-        <div>Dashboard page</div>
+        <div>The main page will be a trello idea board. Eventually, that is. </div>
      );
 }
  

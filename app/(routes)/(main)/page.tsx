@@ -1,5 +1,6 @@
 import getWines from "@/actions/getWines";
 import DarkNavbar from "@/components/dark-navbar";
+import Navbar from "@/components/navbar";
 import WineItem from "@/components/wine-item";
 import Item from "@/components/wine-item";
 import Image from "next/image";
@@ -11,7 +12,7 @@ export default async function Home() {
 
   return (
     <main>
-      <DarkNavbar />
+      <Navbar dark />
 
       {/* HERO */}
       <Image
@@ -58,7 +59,7 @@ export default async function Home() {
               />
               {/* </div> */}
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 max-md:hidden">
                 <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
                   Barolo
                 </button>

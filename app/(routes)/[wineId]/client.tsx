@@ -1,6 +1,7 @@
 "use client";
 
 import LightNavbar from "@/components/light-navbar";
+import Navbar from "@/components/navbar";
 import { Wine } from "@/types";
 import Image from "next/image";
 import { FaRegStar, FaStar } from "react-icons/fa";
@@ -13,7 +14,7 @@ interface WineProps {
 const SingleWineClient: React.FC<WineProps> = ({ item }) => {
   return (
     <div className="bg-gray-50 text-gray-900">
-      <LightNavbar />
+      <Navbar />
       {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold">
