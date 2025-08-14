@@ -18,14 +18,14 @@ export type WinesColumn = {
 export const columns: ColumnDef<WinesColumn>[] = [
   {
     accessorKey: "label",
-    header: "Label",
+    header: "Etikett",
   },
   {
     accessorKey: "brand",
-    header: "Brand",
+    header: "Företag",
   },
   {
     accessorKey: "price",
-    header: "Price",
+    header: "Pris",
   },
 ];

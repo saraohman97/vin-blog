@@ -17,13 +17,13 @@ export default function WinesClient({ data }: WinesClientProps) {
   return (
     <div className="min-h-[600px] max-w-screen-lg mx-auto md:my-10">
       <div className="flex items-start justify-between">
-        <Heading title={`Wines (${data.length})`} description="Manage wines for the blog" />
+        <Heading title={`Viner (${data.length})`} description="Hantera viner för bloggen" />
         <Button
           onClick={() => router.push(`/dashboard/wines/new`)}
           className="bg-black text-white rounded hover:bg-black/90 hover:text-white"
         >
           <Plus className="mr-2 h-4 w-4" />
-          Add New
+          Lägg till ny
         </Button>
       </div>
       <DataTable columns={columns} data={data} />

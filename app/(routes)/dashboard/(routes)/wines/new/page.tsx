@@ -4,16 +4,21 @@ import WineForm from "./(components)/wine-form";
 import { Separator } from "@/components/ui/separator";
 
 // const WinePage = async () => {
-const WinePage = async ({ 
-  params 
-}: { 
-  params: { wineId: string } 
-}) => {
-  // const wine = await prismadb.wine.findUnique({
-  //   where: {
-  //     id: params.wineId,
-  //   },
-  // });
+// const WinePage = async ({ 
+//   params 
+// }: { 
+//   params: { wineId: string } 
+// }) => {
+//   const wine = await prismadb.wine.findUnique({
+//     where: {
+//       id: params.wineId,
+//     },
+//     include: {
+//       images: true
+//     }
+//   });
+
+  const WinePage = () => {
 
 // <--- This is for the edit page. 
 

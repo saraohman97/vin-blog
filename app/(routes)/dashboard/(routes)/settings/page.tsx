@@ -4,7 +4,7 @@ const SettingsPage = () => {
     //eventually "Change profile", "Add user"...
     return ( 
         <div>
-            <Heading title="Settings" description="Change your settings" />
+            <Heading title="Inställningar" description="Ändra dina inställningar" />
         </div>
      );
 }

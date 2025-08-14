@@ -44,9 +44,8 @@ import { PiBeerBottleFill } from "react-icons/pi";
 import { Separator } from "@/components/ui/separator";
 import Review from "./review";
 import ImageUpload from "@/components/ui/image-upload";
-import { Wine } from "@prisma/client";
 import Heading from "@/components/ui/heading";
-import Image from "next/image";
+import { Image, Wine } from "@prisma/client";
 
 const formSchema = z.object({
   label: z.string().optional(),
@@ -62,7 +61,9 @@ const formSchema = z.object({
 });
 
 // interface WineFormProps {
-//   initialData: Wine | null;
+//   initialData: Wine & {
+//     images: Image[]
+//   } | null;
 // }
 
 export const WineForm = () => {
@@ -95,11 +96,11 @@ export const WineForm = () => {
       await axios.post(`/api/wines`, data);
       router.refresh();
       toast({
-        description: "Store updated.",
+        description: "Uppdaterad.",
       });
     } catch (error) {
       toast({
-        description: "Something went wrong.",
+        description: "Något gick fel.",
       });
     } finally {
       setLoading(false);
@@ -108,7 +109,7 @@ export const WineForm = () => {
 
   return (
     <>
-      <Heading title="Wine" description="Create a new wine item" />
+      <Heading title="Vin" description="Skapa en ny vinartikel" />
       {/* <Separator className="-mt-4" /> */}
     {/* <div className="text-gray-500 mb-10 mt-2 text-xs">list of wines {">"} new wine</div> */}
 
@@ -122,7 +123,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel className="flex gap-2">
-                    Label <BiLabel />
+                    Etikett <BiLabel />
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Toscana" {...field} />
@@ -138,7 +139,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel className="flex gap-2">
-                    Brand <PiBeerBottleFill />
+                    Företag <PiBeerBottleFill />
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Villa Puccini" {...field} />
@@ -156,10 +157,10 @@ export const WineForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="flex gap-2">
-                  Description <BsChatLeftText />
+                  Beskrivning <BsChatLeftText />
                 </FormLabel>
                 <FormControl>
-                  <Textarea placeholder="The wine is...." {...field} />
+                  <Textarea placeholder="Vinet är...." {...field} />
                 </FormControl>
                 <FormDescription>
                   Beskrivningen kan innehålla fakta om vinet, märket eller
@@ -180,7 +181,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="space-y-3">
                   <FormLabel className="flex gap-1">
-                    Color <MdColorize />
+                    Färg <MdColorize />
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
@@ -214,7 +215,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="space-y-3">
                   <FormLabel className="flex gap-2">
-                    Flavor <GiFruitBowl />
+                    Smak <GiFruitBowl />
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
@@ -253,7 +254,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className="flex gap-2">
-                    Countries <MdPlace />
+                    Länder <MdPlace />
                   </FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -270,7 +271,7 @@ export const WineForm = () => {
                             ? countries.find(
                                 (country) => country.label === field.value
                               )?.label
-                            : "Select country"}
+                            : "Välj land"}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                       </FormControl>
@@ -279,7 +280,7 @@ export const WineForm = () => {
                       <Command>
                         <CommandInput placeholder="Search country..." />
                         <CommandList>
-                          <CommandEmpty>No country found.</CommandEmpty>
+                          <CommandEmpty>Inget land hittades.</CommandEmpty>
                           <CommandGroup>
                             {countries.map((country) => (
                               <CommandItem
@@ -318,7 +319,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className="flex gap-2">
-                    Grape <GiGrapes />
+                    Druva <GiGrapes />
                   </FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -335,7 +336,7 @@ export const WineForm = () => {
                             ? grapes.find(
                                 (grape) => grape.label === field.value
                               )?.label
-                            : "Select grape"}
+                            : "Välj druva"}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                       </FormControl>
@@ -344,7 +345,7 @@ export const WineForm = () => {
                       <Command>
                         <CommandInput placeholder="Search country..." />
                         <CommandList>
-                          <CommandEmpty>No grape found.</CommandEmpty>
+                          <CommandEmpty>Ingen druva hittades.</CommandEmpty>
                           <CommandGroup>
                             {grapes.map((grape) => (
                               <CommandItem
@@ -383,7 +384,7 @@ export const WineForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="flex gap-2">
-                    Price <IoPricetagsOutline />
+                    Pris <IoPricetagsOutline />
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="99" {...field} />
@@ -398,7 +399,7 @@ export const WineForm = () => {
               name="review"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Review</FormLabel>
+                  <FormLabel>Recension</FormLabel>
                   <FormControl>
                     <Input placeholder="3" {...field} />
                     {/* <Review value={field.value.map(review)} /> */}
@@ -434,7 +435,7 @@ export const WineForm = () => {
             )}
           />
 
-          <Button>Submit</Button>
+          <Button>Skapa</Button>
         </form>
       </Form>
     </>

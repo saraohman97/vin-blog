@@ -29,7 +29,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     onChange(result.info.secure_url);
   };
 
-  if (!isMounted) return null;
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div>
@@ -55,12 +57,21 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         ))}
       </div>
 
-      <CldUploadWidget onUpload={onUpload} uploadPreset="skola-blogg">
+      <CldUploadWidget onSuccess={onUpload} uploadPreset="vin-blogg">
         {({ open }) => {
           const onClick = () => {
-            open()
-          }
-          return <Button type="button" disabled={disabled} variant="secondary" onClick={onClick}><ImagePlus className="h-4 w-4 mr-2" /> Upload an Image</Button>;
+            open();
+          }; 
+          return (
+            <Button
+              type="button"
+              disabled={disabled}
+              variant="secondary"
+              onClick={onClick}
+            >
+              <ImagePlus className="h-4 w-4 mr-2" /> Upload an Image
+            </Button>
+          );
         }}
       </CldUploadWidget>
     </div>

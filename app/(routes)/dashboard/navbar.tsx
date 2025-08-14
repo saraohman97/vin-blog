@@ -10,18 +10,18 @@ const Navbar = () => {
   const routes = [
     {
       href: `/dashboard`,
-      label: "CMS",
+      label: "Min planering",
       active: pathname === `/dashboard`,
     },
     {
       href: `/dashboard/settings`,
-      label: "Settings",
+      label: "Inställningar",
       active: pathname === `/dashboard/settings`,
     },
     {
       href: `/dashboard/wines`,
-      label: "Wines",
-      active: pathname === `/dashboard/wines` || `/dashboard/wines/new`,
+      label: "Vin",
+      active: pathname === `/dashboard/wines`
     },
   ];
 
