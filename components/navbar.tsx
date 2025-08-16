@@ -15,9 +15,9 @@ const Navbar: React.FC<NavbarProps> = ({ dark }) => {
   const [short, setShort] = useState(false);
 
   const changeNavbar = () => {
-    window.scrollY >= 700 ? setShort(true) : setShort(false);
+    // window.scrollY >= 700 ? setShort(true) : setShort(false);
   };
-  window.addEventListener("scroll", changeNavbar);
+  // window.addEventListener("scroll", changeNavbar);
 
   return (
     <div

@@ -1,3 +1,5 @@
+import { User } from "@prisma/client";
+
 export interface Wine {
     id: string;
     label: string;
@@ -15,4 +17,13 @@ export interface Wine {
 export interface Image {
     id: string;
     url: string;
+}
+
+export type SafeUser = Omit<
+    User,
+    "createdAt" | "updatedAt" | "emailVerified"
+> & {
+    createdAt: string;
+    updatedAt: string;
+    emailVerified: string | null;
 }

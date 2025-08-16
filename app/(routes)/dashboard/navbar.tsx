@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -43,6 +45,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+        <Button onClick={() => signOut()}>Logga ut</Button>
       </div>
     </div>
   );
