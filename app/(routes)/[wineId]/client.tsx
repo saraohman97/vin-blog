@@ -86,7 +86,7 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
             <div className="font-bold mb-4">Druva: {item?.grape}</div>
           )}
           <div className="font-bold mb-4">
-            Andra vin av samma märke:{" "}
+            Andra viner av samma märke:{" "}
             <span className="underline underline-offset-4 cursor-pointer">
               {item?.brand}
             </span>

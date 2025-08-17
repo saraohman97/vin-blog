@@ -7,10 +7,8 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  //eventually sidebar x menu x navbar
-
-    const currentUser = await getCurrentUser();
-    !currentUser && redirect("/login");
+  const currentUser = await getCurrentUser();
+  !currentUser && redirect("/login");
 
   return (
     <div className="max-w-screen-2xl mx-auto min-h-screen bg-white">

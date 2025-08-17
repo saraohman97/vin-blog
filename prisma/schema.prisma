@@ -24,7 +24,6 @@ model User {
   updatedAt      DateTime  @updatedAt
 
   accounts Account[]
-  // wines    Wine[]
 }
 
 model Account {
@@ -47,7 +46,7 @@ model Account {
 }
 
 model Wine {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   label       String
   brand       String
   description String
@@ -59,11 +58,31 @@ model Wine {
   review      String
   zoomImage   Boolean
   images      Image[]
+  createdAt   DateTime @default(now())
+}
 
+model Brand {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
   createdAt DateTime @default(now())
+}
 
-  // userId    String   @db.ObjectId
-  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Flavor {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Country {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Grape {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime @default(now())
 }
 
 model Image {
@@ -71,7 +90,6 @@ model Image {
   url    String
   wineId String @db.ObjectId
   wine   Wine   @relation(fields: [wineId], references: [id], onDelete: Cascade)
-  // createdAt DateTime @default(now())
 
   @@index([wineId])
 }
