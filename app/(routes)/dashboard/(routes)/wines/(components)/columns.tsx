@@ -12,7 +12,8 @@ export type WinesColumn = {
   country: string;
   price: string;
   grape: string;
-  review: string;
+  review: number;
+  zoomImage: boolean;
 };
 
 export const columns: ColumnDef<WinesColumn>[] = [

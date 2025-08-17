@@ -1,6 +1,6 @@
 import { User } from "@prisma/client";
 
-export interface Wine {
+export type Wine = {
     id: string;
     label: string;
     brand: string;
@@ -11,10 +11,11 @@ export interface Wine {
     price: string;
     grape: string;
     review: string;
+    zoomImage: boolean;
     images: Image[];
 }
 
-export interface Image {
+export type Image = {
     id: string;
     url: string;
 }

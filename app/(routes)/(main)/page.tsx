@@ -1,8 +1,6 @@
 import getWines from "@/actions/getWines";
-import DarkNavbar from "@/components/dark-navbar";
 import Navbar from "@/components/navbar";
 import WineItem from "@/components/wine-item";
-import Item from "@/components/wine-item";
 import Image from "next/image";
 // laktris: bg-[#1B1212]
 // black: bg-[#0b0b0b]
@@ -44,20 +42,18 @@ export default async function Home() {
                   })}
                 </>
               ) : (
-                "No posts"
+                "Inga inlägg"
               )}
             </div>
 
             {/* SIDEBAR */}
             <div className="p-4 md:w-1/3 rounded-xl h-fit">
               <h3 className="mb-2 font-serif font-bold">Sök</h3>
-              {/* <div className="w-full border h-fit rounded-full hover:bg-gray-50 mb-4"> */}
               <input
                 type="text"
                 placeholder="Namn / datum"
                 className="h-10 w-full font-serif bg-transparent px-4 border rounded-full outline-none hover:bg-gray-50 mb-4"
               />
-              {/* </div> */}
 
               <div className="flex flex-wrap gap-2 max-md:hidden">
                 <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
@@ -78,10 +74,6 @@ export default async function Home() {
               </div>
             </div>
           </div>
-
-          {/* <div className="mt-10">Kategorier:</div>
-          <div>Vin - rött vin - Dokumenterade röda viner och hur de smakar</div>
-          <div>Mat - bakverk, vardag, </div> */}
 
           {/* FOOTER */}
           <div className="mt-20 leading-loose tracking-wide font-bold">

@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -19,7 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Check, ChevronsUpDown, Trash } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -38,14 +38,13 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MdColorize, MdPlace } from "react-icons/md";
 import { BiLabel } from "react-icons/bi";
 import { BsChatLeftText } from "react-icons/bs";
-import { IoPricetagsOutline } from "react-icons/io5";
+import { IoImageSharp, IoPricetagsOutline } from "react-icons/io5";
 import { GiFruitBowl, GiGrapes } from "react-icons/gi";
 import { PiBeerBottleFill } from "react-icons/pi";
 import { Separator } from "@/components/ui/separator";
-import Review from "./review";
 import ImageUpload from "@/components/ui/image-upload";
 import Heading from "@/components/ui/heading";
-import { Image, Wine } from "@prisma/client";
+import { Switch } from "@/components/ui/switch";
 
 const formSchema = z.object({
   label: z.string().optional(),
@@ -56,7 +55,8 @@ const formSchema = z.object({
   country: z.string().optional(),
   price: z.string().optional(),
   grape: z.string().optional(),
-  review: z.string().min(1),
+  review: z.number().min(1),
+  zoomImage: z.boolean().default(false).optional(),
   images: z.object({ url: z.string() }).array(),
 });
 
@@ -85,7 +85,8 @@ export const WineForm = () => {
       country: "Italien",
       price: "99",
       grape: "",
-      review: "",
+      review: 1,
+      zoomImage: false,
       images: [],
     },
   });
@@ -111,7 +112,7 @@ export const WineForm = () => {
     <>
       <Heading title="Vin" description="Skapa en ny vinartikel" />
       {/* <Separator className="-mt-4" /> */}
-    {/* <div className="text-gray-500 mb-10 mt-2 text-xs">list of wines {">"} new wine</div> */}
+      {/* <div className="text-gray-500 mb-10 mt-2 text-xs">list of wines {">"} new wine</div> */}
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -208,7 +209,7 @@ export const WineForm = () => {
                 </FormItem>
               )}
             />
-            {/* <Separator /> */}
+
             <FormField
               control={form.control}
               name="flavor"
@@ -243,8 +244,6 @@ export const WineForm = () => {
               )}
             />
           </div>
-
-          <Separator />
 
           {/* COUNTRIES, GRAPE, PRICE AND REVIEW */}
           <div className="flex flex-wrap items-center gap-6 md:gap-10">
@@ -402,13 +401,14 @@ export const WineForm = () => {
                   <FormLabel>Recension</FormLabel>
                   <FormControl>
                     <Input placeholder="3" {...field} />
-                    {/* <Review value={field.value.map(review)} /> */}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
+
+          <Separator />
 
           {/* IMAGES */}
           <FormField
@@ -435,7 +435,29 @@ export const WineForm = () => {
             )}
           />
 
-          <Button>Skapa</Button>
+
+          {/* ZOOM-IMAGE SWITCH */}
+          <FormField
+            control={form.control}
+            name="zoomImage"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="flex gap-2">
+                  Egen bild <IoImageSharp />
+                </FormLabel>
+                <FormControl>
+                  <Switch
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    // {field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <Button type="submit">Skapa</Button>
         </form>
       </Form>
     </>

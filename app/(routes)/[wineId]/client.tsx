@@ -1,21 +1,18 @@
 "use client";
 
-import LightNavbar from "@/components/light-navbar";
 import Navbar from "@/components/navbar";
+import StarsRating from "@/components/stars";
 import { Wine } from "@/types";
 import Image from "next/image";
-import { FaRegStar, FaStar } from "react-icons/fa";
 
 interface WineProps {
-  //   images: ImageType[];
-  item: Wine | null;
+  item: Wine;
 }
 
 const SingleWineClient: React.FC<WineProps> = ({ item }) => {
   return (
     <div className="bg-gray-50 text-gray-900">
       <Navbar />
-      {/* <div className="bg-white h-14 fixed top-0 w-full" /> */}
 
       <h1 className="pt-32 px-4 text-center text-8xl max-md:text-4xl font-serif font-bold">
         {item?.brand}
@@ -27,29 +24,34 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
       <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
         <div className="flex max-md:flex-col max-md:gap-2">
           <Image
-            src={item?.images?.[0]?.url}
+            src={item?.images[0]?.url}
             alt=""
             width={1000}
             height={1000}
-            className="max-h-96 md:max-h-[1000px] bg-white object-contain border-4 mr-4 border-red-100 w-full py-10 rounded-xl"
+            className={`max-h-96 md:max-h-[1000px] bg-white object-contain border-4 mr-4 border-red-100 w-full py-10 rounded-xl ${
+              item?.zoomImage && "object-cover py-0"
+            }`}
           />
-          <div className="max-md:flex max-md:w-full max-md:gap-2">
-            <Image
-              src={item?.images?.[1]?.url || item?.images?.[0]?.url}
-              alt=""
-              width={1000}
-              height={1000}
-              className="object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
-            />
-            <Image
-              src={item?.images?.[2]?.url || item?.images?.[0]?.url}
-              alt=""
-              width={1000}
-              height={1000}
-              className="object-contain bg-white border-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
-            />
-          </div>
+          {!item?.zoomImage && (
+            <div className="max-md:flex max-md:w-full max-md:gap-2">
+              <Image
+                src={item?.images?.[1]?.url || item?.images?.[0]?.url}
+                alt=""
+                width={1000}
+                height={1000}
+                className={`object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96`}
+              />
+              <Image
+                src={item?.images?.[2]?.url || item?.images?.[0]?.url}
+                alt=""
+                width={1000}
+                height={1000}
+                className="object-contain bg-white border-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
+              />
+            </div>
+          )}
         </div>
+
         <div>
           <div className="text-2xl font-bold text-red-800">Om vinet</div>
           <div className="my-4 flex flex-wrap gap-4">
@@ -71,7 +73,7 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
           </div>
 
           <div className="font-light mb-4">
-            {item?.description} {" "}
+            {item?.description}{" "}
             <span className="text-red-300 cursor-pointer underline underline-offset-4 font-bold">
               Läs mer på www.website.com
             </span>
@@ -84,19 +86,12 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
             <div className="font-bold mb-4">Druva: {item?.grape}</div>
           )}
           <div className="font-bold mb-4">
-            Andra vin av samma märke: {" "}
+            Andra vin av samma märke:{" "}
             <span className="underline underline-offset-4 cursor-pointer">
-              Chianti
+              {item?.brand}
             </span>
           </div>
-
-          <div className="flex gap-2">
-            <FaStar size={25} />
-            <FaStar size={25} />
-            <FaStar size={25} />
-            <FaStar size={25} />
-            <FaRegStar size={25} />
-          </div>
+          <StarsRating item={item} />
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ export async function POST(
             price,
             grape,
             review,
+            zoomImage,
             images
         } = body;
 
@@ -41,6 +42,7 @@ export async function POST(
                 price,
                 grape,
                 review,
+                zoomImage,
                 images: {
                     createMany: {
                         data: [
