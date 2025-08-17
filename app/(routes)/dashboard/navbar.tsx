@@ -23,12 +23,27 @@ const Navbar = () => {
     {
       href: `/dashboard/wines`,
       label: "Vin",
-      active: pathname === `/dashboard/wines`
+      active: pathname === `/dashboard/wines`,
+    },
+    {
+      href: `/dashboard/countries`,
+      label: "Länder",
+      active: pathname === `/dashboard/countries`,
+    },
+    {
+      href: `/dashboard/flavors`,
+      label: "Smaker",
+      active: pathname === `/dashboard/flavors`,
     },
     {
       href: `/dashboard/brands`,
       label: "Vingårdar",
-      active: pathname === `/dashboard/brands`
+      active: pathname === `/dashboard/brands`,
+    },
+    {
+      href: `/dashboard/grapes`,
+      label: "Druvor",
+      active: pathname === `/dashboard/grapes`,
     },
   ];
 
