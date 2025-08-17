@@ -1,12 +1,21 @@
-import getWines from "@/actions/getWines";
+import getWines, { IWinesParams } from "@/actions/getWines";
 import Navbar from "@/components/navbar";
 import WineItem from "@/components/wine-item";
 import Image from "next/image";
+import Sidebar from "./sidebar";
 // laktris: bg-[#1B1212]
 // black: bg-[#0b0b0b]
 
-export default async function Home() {
-  const wines = await getWines();
+interface WinesProps {
+  searchParams: IWinesParams;
+}
+
+export default async function Home({ searchParams }: WinesProps) {
+  const wines = await getWines(searchParams);
+  const brands = await prisma?.brand.findMany();
+  const flavors = await prisma?.flavor.findMany();
+  const countries = await prisma?.country.findMany();
+  const grapes = await prisma?.grape.findMany();
 
   return (
     <main>
@@ -47,32 +56,12 @@ export default async function Home() {
             </div>
 
             {/* SIDEBAR */}
-            <div className="p-4 md:w-1/3 rounded-xl h-fit">
-              <h3 className="mb-2 font-serif font-bold">Sök</h3>
-              <input
-                type="text"
-                placeholder="Namn / datum"
-                className="h-10 w-full font-serif bg-transparent px-4 border rounded-full outline-none hover:bg-gray-50 mb-4"
-              />
-
-              <div className="flex flex-wrap gap-2 max-md:hidden">
-                <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
-                  Barolo
-                </button>
-                <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
-                  Rosso
-                </button>
-                <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
-                  BaroloRoso
-                </button>
-                <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
-                  Barolo
-                </button>
-                <button className="h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold">
-                  Barolo
-                </button>
-              </div>
-            </div>
+            <Sidebar
+              brands={brands}
+              countries={countries}
+              flavors={flavors}
+              grapes={grapes}
+            />
           </div>
 
           {/* FOOTER */}

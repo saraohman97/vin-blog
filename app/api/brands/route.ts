@@ -1,12 +1,10 @@
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
-
 export async function POST(
     req: Request,
 ) {
     try {
-        // const { userId } = auth();
         const body = await req.json();
 
         const { 
@@ -16,6 +14,12 @@ export async function POST(
         if (!name) {
             return new NextResponse("Name is required", { status: 400 });
         }
+
+        Object.keys(body).forEach((value: any) => {
+            if (!body[value]) {
+                NextResponse.error();
+            }
+        })
 
         const brand = await prismadb.brand.create({
             data: {
