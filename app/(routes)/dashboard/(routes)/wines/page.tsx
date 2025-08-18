@@ -1,8 +1,7 @@
 import WinesClient from "./(components)/client";
 import prismadb from "@/lib/prismadb";
 import { format } from "date-fns";
-import { WinesColumn, columns } from "./(components)/columns";
-// import { formatter } from "@/lib/utils";
+import { WinesColumn } from "./(components)/columns";
 
 const WinesPage = async () => {
   const wines = await prismadb.wine.findMany({
@@ -24,7 +23,6 @@ const WinesPage = async () => {
     country: item.country,
     price: item.price,
     grape: item.grape,
-    review: item.review,
     zoomImage: item.zoomImage,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));

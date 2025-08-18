@@ -2,11 +2,13 @@
 
 import Navbar from "@/components/navbar";
 import StarsRating from "@/components/stars";
-import { Wine } from "@/types";
+import { Image as ImageType, Wine } from "@prisma/client";
 import Image from "next/image";
 
 interface WineProps {
-  item: Wine;
+  item: Wine & {
+    images: ImageType[]
+  } | null;
 }
 
 const SingleWineClient: React.FC<WineProps> = ({ item }) => {
@@ -24,7 +26,7 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
       <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
         <div className="flex max-md:flex-col max-md:gap-2">
           <Image
-            src={item?.images[0]?.url}
+            src={`${item?.images.map((image) => image.url)}`}
             alt=""
             width={1000}
             height={1000}
@@ -35,14 +37,14 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
           {!item?.zoomImage && (
             <div className="max-md:flex max-md:w-full max-md:gap-2">
               <Image
-                src={item?.images?.[1]?.url || item?.images?.[0]?.url}
+                src={`${item?.images.map((image) => image.url)}`}
                 alt=""
                 width={1000}
                 height={1000}
                 className={`object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96`}
               />
               <Image
-                src={item?.images?.[2]?.url || item?.images?.[0]?.url}
+                src={`${item?.images.map((image) => image.url)}`}
                 alt=""
                 width={1000}
                 height={1000}

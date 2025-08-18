@@ -12,7 +12,6 @@ export type WinesColumn = {
   country: string;
   price: string;
   grape: string;
-  review: number;
   zoomImage: boolean;
 };
 

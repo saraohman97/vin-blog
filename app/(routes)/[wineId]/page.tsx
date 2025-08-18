@@ -1,12 +1,15 @@
-import LightNavbar from "@/components/light-navbar";
-import prismadb from "@/lib/prismadb";
-import { Image as ImageType } from "@/types";
-import Image from "next/image";
-import { FaRegStar, FaStar } from "react-icons/fa";
 import SingleWineClient from "./client";
+import React from "react";
+import { redirect } from "next/navigation";
 
-const SingleWinePage = async ({ params }: { params: { wineId: string } }) => {
-  const wine = await prismadb.wine.findUnique({
+interface WineIdProps {
+  params: {
+    wineId: string;
+  }
+}
+
+const SingleWinePage: React.FC<WineIdProps> = async ({params}) => {
+  const wine = await prisma?.wine.findFirst({
     where: {
       id: params.wineId
     },
@@ -14,6 +17,10 @@ const SingleWinePage = async ({ params }: { params: { wineId: string } }) => {
       images: true
     }
   })
+
+  if(!wine) {
+    redirect("/")
+  }
 
   return (
     <SingleWineClient item={wine} />

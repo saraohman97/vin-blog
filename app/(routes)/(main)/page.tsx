@@ -3,6 +3,10 @@ import Navbar from "@/components/navbar";
 import WineItem from "@/components/wine-item";
 import Image from "next/image";
 import Sidebar from "./sidebar";
+import getBrands from "@/actions/getBrands";
+import getFlavors from "@/actions/getFlavors";
+import getCountries from "@/actions/getCountries";
+import getGrapes from "@/actions/getGrapes";
 // laktris: bg-[#1B1212]
 // black: bg-[#0b0b0b]
 
@@ -12,10 +16,10 @@ interface WinesProps {
 
 export default async function Home({ searchParams }: WinesProps) {
   const wines = await getWines(searchParams);
-  const brands = await prisma?.brand.findMany();
-  const flavors = await prisma?.flavor.findMany();
-  const countries = await prisma?.country.findMany();
-  const grapes = await prisma?.grape.findMany();
+  const brands = await getBrands()
+  const flavors = await getFlavors()
+  const countries = await getCountries()
+  const grapes = await getGrapes()
 
   return (
     <main>
@@ -57,6 +61,7 @@ export default async function Home({ searchParams }: WinesProps) {
 
             {/* SIDEBAR */}
             <Sidebar
+            wines={wines}
               brands={brands}
               countries={countries}
               flavors={flavors}

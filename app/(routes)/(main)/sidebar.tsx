@@ -6,13 +6,14 @@ import BrandBadge from "./(badges)/brandBadge";
 import FlavorBadge from "./(badges)/flavorBadge";
 import GrapeBadge from "./(badges)/grapeBadge";
 import CountryBadge from "./(badges)/countryBadge";
-import { Brand, Country, Flavor, Grape } from "@/types";
+import { Brand, Country, Flavor, Grape, Wine } from "@prisma/client";
 
 interface SidebarProps {
   brands: Brand[];
   countries: Country[];
   flavors: Flavor[];
   grapes: Grape[];
+  wines: Wine[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
