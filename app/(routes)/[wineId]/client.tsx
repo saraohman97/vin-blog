@@ -28,8 +28,8 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
             alt=""
             width={1000}
             height={1000}
-            className={`max-h-96 md:max-h-[1000px] bg-white object-contain border-4 mr-4 border-red-100 w-full py-10 rounded-xl ${
-              item?.zoomImage && "object-cover py-0"
+            className={`max-h-96 md:max-h-[1000px] bg-white border-4 mr-4 border-red-100 w-full rounded-xl ${
+              item?.zoomImage ? "object-cover py-0" : "object-contain py-10"
             }`}
           />
           {!item?.zoomImage && (

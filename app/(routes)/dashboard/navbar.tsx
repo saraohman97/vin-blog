@@ -44,7 +44,7 @@ const Navbar = () => {
       href: `/dashboard/grapes`,
       label: "Druvor",
       active: pathname === `/dashboard/grapes`,
-    },
+    }
   ];
 
   return (

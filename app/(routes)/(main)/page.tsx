@@ -41,7 +41,7 @@ export default async function Home({ searchParams }: WinesProps) {
             <div>Dokumenterade röda viner och hur de smakar</div>
           </div>
 
-          <div className="flex max-md:flex-col-reverse gap-10">
+          <div className="flex max-md:flex-col-reverse gap-10 items-start">
             {/* MAIN */}
             <div className="flex flex-wrap gap-10 w-full">
               {wines.length ? (

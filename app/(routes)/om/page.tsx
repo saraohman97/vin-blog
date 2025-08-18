@@ -1,15 +1,14 @@
-import DarkNavbar from "@/components/dark-navbar";
+import Navbar from "@/components/navbar";
 import Image from "next/image";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosSchool } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { PiMapPinSimpleFill } from "react-icons/pi";
-// import { FaComputerMouse } from "react-icons/fa6";
 
 const AboutPage = () => {
   return (
     <div className="relative bg-white">
-      <DarkNavbar />
+      <Navbar dark />
 
       {/* HERO */}
       <div className="h-[800px] bg-black/70 w-full absolute" />
@@ -32,22 +31,9 @@ const AboutPage = () => {
               Om mig
             </h3>
             <p>
-              {/* Välkommen till min webbsida om vin och mat. Jag söker ständigt
-            kulinarisk insikt i traditionella- och nya upplevelser. Jag lär mig
-            ständigt som student på kockskola och som kallskänka på finrestaurangen
-            Västerås Officersmäss.
-            <br />
-            <br />
-            Det finns mycket att inspireras av i Västerås City och många
-            trevliga restauranger som Marcel P, Vinoteket och Franks, men den
-            trevligaste restaurangen är enligt mig Hattis. */}
               Välkommen till min webbsida om vin och mat. Jag söker ständigt
               kulinarisk insikt i traditionella- och nya upplevelser. <br /><br />
               Året 2025 börjar jag kockskola och kommer ständigt dokumentera min utveckling här. 
-              {/* Välkommen till min webbsida om vin och mat. Jag söker ständigt
-              kulinarisk insikt i traditionella- och nya upplevelser. Jag lär
-              mig ständigt som student på kockskola och dokumenterar min
-              utveckling här. */}
             </p>
             <div className="text-red-900 text-sm text-start flex flex-col items-start mt-6">
               <div className="flex gap-1 mb-1 items-center">

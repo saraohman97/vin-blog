@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { GiEasterEgg, GiOakLeaf } from "react-icons/gi";
 import { MdOutlinePersonAddAlt } from "react-icons/md";
-import { TbBeach, TbChristmasBall } from "react-icons/tb";
+// import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+// import { GiEasterEgg, GiOakLeaf } from "react-icons/gi";
+// import { TbBeach, TbChristmasBall } from "react-icons/tb";
 
 interface NavbarProps {
   dark?: boolean;
@@ -14,9 +14,9 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ dark }) => {
   const [short, setShort] = useState(false);
 
-  const changeNavbar = () => {
-    // window.scrollY >= 700 ? setShort(true) : setShort(false);
-  };
+  // const changeNavbar = () => {
+  //   window.scrollY >= 700 ? setShort(true) : setShort(false);
+  // };
   // window.addEventListener("scroll", changeNavbar);
 
   return (
@@ -29,13 +29,13 @@ const Navbar: React.FC<NavbarProps> = ({ dark }) => {
     >
       <div className="h-14 flex max-md:flex-col max-md:items-start items-center justify-between max-w-screen-2xl mx-auto p-4 font-serif">
         <div className="flex gap-4 max-md:flex-col max-md:items-start items-center">
-          <Link href="/" className="text-3xl mr-10">
+          <Link href={"/"} className="text-3xl mr-10">
             Vin & Mat
           </Link>
 
-          <div className="flex gap-4 items-center">
+          {/* <div className="flex gap-4 items-center">
             <Link
-              href="/vinkallaren"
+              href="/"
               className="hover:underline underline-offset-8 hover:text-black/70 cursor-pointer"
             >
               Vinkällare
@@ -68,16 +68,16 @@ const Navbar: React.FC<NavbarProps> = ({ dark }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
-        <div
+        <Link href={"/om"}
           className={`border ${
             dark ? "" : "border-black/30"
           } h-fit bg-transparent max-md:hidden px-8 py-1 flex items-center gap-2 rounded-3xl hover:bg-black/10 cursor-pointer`}
         >
           <MdOutlinePersonAddAlt /> Anställ mig
-        </div>
+        </Link>
       </div>
     </div>
   );

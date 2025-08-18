@@ -1,6 +1,6 @@
 "use client";
 
-import { Brand, Country, Flavor, Grape, Wine } from "@prisma/client";
+import { Brand, Country, Flavor, Grape } from "@prisma/client";
 import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
 import BrandBadge from "./(badges)/brandBadge";
@@ -33,12 +33,12 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div className="p-4 md:w-1/3 rounded-xl h-fit">
-      <h3 className="mb-2 font-serif font-bold">Sök</h3>
-      <input
+      {/* <h3 className="mb-2 font-serif font-bold">Sök</h3> */}
+      {/* <input
         type="text"
         placeholder="Namn / datum"
         className="h-10 w-full font-serif bg-transparent px-4 border rounded-full outline-none hover:bg-gray-50 mb-4"
-      />
+      /> */}
 
       <div className="flex flex-wrap gap-2 max-md:hidden">
         <h2 className="text-sm font-bold w-full underline underline-offset-2 font-serif text-red-900">
