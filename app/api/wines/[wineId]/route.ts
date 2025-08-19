@@ -1,3 +1,4 @@
+import getCurrentUser from "@/actions/getCurrentUser";
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
@@ -9,9 +10,15 @@ export async function GET(
         // const { searchParams } = new URL(req.url);
         // const wineId = searchParams.get("wineId") || undefined;
 
-        if (!params.wineId) {
-            return new NextResponse("Item id is required", { status: 400 });
-        }
+        // if (!params.wineId) {
+        //     return new NextResponse("Item id is required", { status: 400 });
+        // }
+        const currentUser = await getCurrentUser();
+
+        if (!currentUser) return NextResponse.error();
+    
+        const body = await req.json();
+
 
         const wine = await prismadb.wine.findMany({
             where: {
