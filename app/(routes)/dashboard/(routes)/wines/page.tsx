@@ -1,17 +1,10 @@
 import WinesClient from "./(components)/client";
-import prismadb from "@/lib/prismadb";
 import { format } from "date-fns";
 import { WinesColumn } from "./(components)/columns";
+import getDashboardWines from "@/actions/getDashboardWines";
 
 const WinesPage = async () => {
-  const wines = await prismadb.wine.findMany({
-    include: {
-      images: true,
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const wines = await getDashboardWines();
 
   const formattedWines: WinesColumn[] = wines.map((item) => ({
     id: item.id,

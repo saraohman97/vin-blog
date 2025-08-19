@@ -7,9 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
 import Navbar from "@/components/navbar";
-// import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -21,7 +19,6 @@ const formSchema = z.object({
 
 const RegisterPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-//   const { toast } = useToast();
 
   const {
     register,
@@ -39,42 +36,26 @@ const RegisterPage = () => {
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/register", data)
-    //   .then(() => {
-    //     toast({
-    //       title: "Meddelande:",
-    //       description: "Användaren är skapad.",
-    //       action: <CheckCircle />,
-    //     });
-    //   })
-    //   .catch((error: any) => {
-    //     toast({
-    //       title: "Meddelande:",
-    //       description: error,
-    //       variant: "destructive",
-    //     });
-    //   })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    axios.post("/api/register", data).finally(() => {
+      setIsLoading(false);
+    });
   };
 
   return (
     <div className="bg-white min-h-screen">
-    <Navbar />
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col w-72 gap-4 items-center justify-center h-full mx-auto"
-    >
-      <h1 className="text-xl mt-24 mb-8">Sign in</h1>
-      <input
-        id="name"
-        type="text"
-        disabled={isLoading}
-        {...register("name")}
-        placeholder="Name"
-        className={`
+      <Navbar />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col w-72 gap-4 items-center justify-center h-full mx-auto"
+      >
+        <h1 className="text-xl mt-24 mb-8">Sign in</h1>
+        <input
+          id="name"
+          type="text"
+          disabled={isLoading}
+          {...register("name")}
+          placeholder="Name"
+          className={`
             peer
             border
             rounded
@@ -89,14 +70,14 @@ const RegisterPage = () => {
                 : "border-neutral-300"
             }
             `}
-      />
-      <input
-        id="email"
-        type="text"
-        disabled={isLoading}
-        {...register("email")}
-        placeholder="Email"
-        className={`
+        />
+        <input
+          id="email"
+          type="text"
+          disabled={isLoading}
+          {...register("email")}
+          placeholder="Email"
+          className={`
             peer
             border
             rounded
@@ -111,14 +92,14 @@ const RegisterPage = () => {
                 : "border-neutral-300"
             }
             `}
-      />
-      <input
-        id="password"
-        type="text"
-        disabled={isLoading}
-        {...register("password")}
-        placeholder="Password"
-        className={`
+        />
+        <input
+          id="password"
+          type="text"
+          disabled={isLoading}
+          {...register("password")}
+          placeholder="Password"
+          className={`
             peer
             border
             rounded
@@ -133,9 +114,9 @@ const RegisterPage = () => {
                 : "border-neutral-300"
             }
             `}
-      />
-      <Button>Submit</Button>
-    </form>
+        />
+        <Button>Submit</Button>
+      </form>
     </div>
   );
 };

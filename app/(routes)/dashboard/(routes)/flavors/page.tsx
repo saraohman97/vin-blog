@@ -2,13 +2,10 @@ import Client from "./(components)/client";
 import prismadb from "@/lib/prismadb";
 import { format } from "date-fns";
 import { FlavorsColumn } from "./(components)/columns";
+import getFlavors from "@/actions/getFlavors";
 
 const FlavorsPage = async () => {
-  const flavors = await prismadb.flavor.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const flavors = await getFlavors();
 
   const formatted: FlavorsColumn[] = flavors.map((item) => ({
     id: item.id,

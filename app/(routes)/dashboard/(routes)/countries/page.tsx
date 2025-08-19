@@ -1,14 +1,10 @@
 import Client from "./(components)/client";
-import prismadb from "@/lib/prismadb";
 import { format } from "date-fns";
 import { CountriesColumn } from "./(components)/columns";
+import getCountries from "@/actions/getCountries";
 
 const CountriesPage = async () => {
-  const countries = await prismadb.country.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const countries = await getCountries();
 
   const formatted: CountriesColumn[] = countries.map((item) => ({
     id: item.id,
