@@ -55,23 +55,15 @@ const formSchema = z.object({
   country: z.string().optional(),
   price: z.string().optional(),
   grape: z.string().optional(),
-  review: z.number().min(1),
+  review: z.string().min(1),
   zoomImage: z.boolean().default(false).optional(),
   images: z.object({ url: z.string() }).array(),
 });
 
-// interface WineFormProps {
-//   initialData: Wine & {
-//     images: Image[]
-//   } | null;
-// }
-
 export const WineForm = () => {
-  //   const params = useParams();
   const router = useRouter();
   const { toast } = useToast();
 
-  const [open, setOpen] = useState(false); // <-- For Alert modal
   const [loading, setLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -85,7 +77,7 @@ export const WineForm = () => {
       country: "Italien",
       price: "99",
       grape: "",
-      review: 1,
+      review: "",
       zoomImage: false,
       images: [],
     },
@@ -435,7 +427,6 @@ export const WineForm = () => {
             )}
           />
 
-
           {/* ZOOM-IMAGE SWITCH */}
           <FormField
             control={form.control}
@@ -449,7 +440,6 @@ export const WineForm = () => {
                   <Switch
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    // {field}
                   />
                 </FormControl>
                 <FormMessage />

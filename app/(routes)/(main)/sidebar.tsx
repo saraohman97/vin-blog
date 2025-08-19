@@ -1,12 +1,12 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Brand, Country, Flavor, Grape, Wine } from "@prisma/client";
 import BrandBadge from "./(badges)/brandBadge";
 import FlavorBadge from "./(badges)/flavorBadge";
 import GrapeBadge from "./(badges)/grapeBadge";
 import CountryBadge from "./(badges)/countryBadge";
-import { Brand, Country, Flavor, Grape, Wine } from "@prisma/client";
 
 interface SidebarProps {
   brands: Brand[];

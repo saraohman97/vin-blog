@@ -9,7 +9,9 @@ export interface IWinesParams {
     grape?: string;
 }
 
-export default async function getWines(params: IWinesParams) {
+export default async function getWines(
+    params: IWinesParams
+) {
     const { brand, flavor, country, grape } = params;
 
     let query: any = {};

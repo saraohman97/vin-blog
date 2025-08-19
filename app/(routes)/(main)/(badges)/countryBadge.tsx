@@ -43,7 +43,7 @@ const CountryBadge: React.FC<BadgeProps> = ({ name, selected }) => {
   return (
     <button
       onClick={handleClick}
-      className={`h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold ${selected && 'bg-black/20'}`}
+      className={`h-10 px-4 border rounded-3xl hover:bg-gray-50 hover:text-red-900 hover:border-red-900 text-sm font-bold ${selected ? 'bg-black/20' : "bg-transparent"}`}
     >
       {name}
     </button>

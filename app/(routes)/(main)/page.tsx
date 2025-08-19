@@ -16,10 +16,10 @@ interface WinesProps {
 
 export default async function Home({ searchParams }: WinesProps) {
   const wines = await getWines(searchParams);
-  const brands = await getBrands()
-  const flavors = await getFlavors()
-  const countries = await getCountries()
-  const grapes = await getGrapes()
+  const brands = await getBrands();
+  const flavors = await getFlavors();
+  const countries = await getCountries();
+  const grapes = await getGrapes();
 
   return (
     <main>
@@ -61,7 +61,7 @@ export default async function Home({ searchParams }: WinesProps) {
 
             {/* SIDEBAR */}
             <Sidebar
-            wines={wines}
+              wines={wines}
               brands={brands}
               countries={countries}
               flavors={flavors}

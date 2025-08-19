@@ -23,6 +23,7 @@ const WinesPage = async () => {
     country: item.country,
     price: item.price,
     grape: item.grape,
+    review: item.review,
     zoomImage: item.zoomImage,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));
