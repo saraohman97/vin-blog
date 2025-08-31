@@ -89,7 +89,7 @@ export const WineForm = () => {
       await axios.post(`/api/wines`, data);
       router.refresh();
       toast({
-        description: "Uppdaterad.",
+        description: "Skapad.",
       });
     } catch (error) {
       toast({

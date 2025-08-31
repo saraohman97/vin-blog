@@ -6,9 +6,11 @@ import { Image as ImageType, Wine } from "@prisma/client";
 import Image from "next/image";
 
 interface WineProps {
-  item: Wine & {
-    images: ImageType[]
-  } | null;
+  item:
+    | (Wine & {
+        images: ImageType[];
+      })
+    | null;
 }
 
 const SingleWineClient: React.FC<WineProps> = ({ item }) => {
@@ -23,35 +25,42 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
         {item?.label}
       </h2>
 
-      <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10">
-        <div className="flex max-md:flex-col max-md:gap-2">
-          <Image
-            src={`${item?.images.map((image) => image.url)}`}
-            alt=""
-            width={1000}
-            height={1000}
-            className={`max-h-96 md:max-h-[1000px] bg-white border-4 mr-4 border-red-100 w-full rounded-xl ${
-              item?.zoomImage ? "object-cover py-0" : "object-contain py-10"
-            }`}
-          />
-          {!item?.zoomImage && (
-            <div className="max-md:flex max-md:w-full max-md:gap-2">
-              <Image
-                src={`${item?.images.map((image) => image.url)}`}
-                alt=""
-                width={1000}
-                height={1000}
-                className={`object-contain bg-white border-4 mb-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96`}
-              />
-              <Image
-                src={`${item?.images.map((image) => image.url)}`}
-                alt=""
-                width={1000}
-                height={1000}
-                className="object-contain bg-white border-4 border-red-100 w-full py-10 px-2 rounded-xl max-h-96"
-              />
-            </div>
-          )}
+      <div className="max-w-screen-xl mx-auto py-10 px-4 grid md:grid-cols-2 gap-10 w-full">
+        {/* IMAGES GRID */}
+        <div className="grid grid-cols-4 grid-rows-4 gap-2 max-h-[700px]">
+          <div className={`col-span-3 row-span-4 max-md:col-span-4 max-md:row-span-3`}>
+            <Image
+              src={`${item?.images.map((image) => image.url)}`}
+              alt=""
+              width={1000}
+              height={1000}
+              className={`bg-white border-4 border-red-100 rounded-xl h-full ${
+                item?.zoomImage ? "object-cover p-0" : "object-contain p-10"
+              }`}
+            />
+          </div>
+          <div className="row-span-2 max-md:row-span-1 max-md:col-span-2">
+            <Image
+              src={`${item?.images.map((image) => image.url)}`}
+              alt=""
+              width={1000}
+              height={1000}
+              className={`bg-white border-4 border-red-100 rounded-xl h-full ${
+                item?.zoomImage ? "object-cover p-0" : "object-contain p-2"
+              }`}
+            />
+          </div>
+          <div className="row-span-2 max-md:row-span-1 max-md:col-span-2">
+            <Image
+              src={`${item?.images.map((image) => image.url)}`}
+              alt=""
+              width={1000}
+              height={1000}
+              className={`bg-white border-4 border-red-100 rounded-xl h-full ${
+                item?.zoomImage ? "object-cover p-0" : "object-contain p-2"
+              }`}
+            />
+          </div>
         </div>
 
         <div>
@@ -76,9 +85,9 @@ const SingleWineClient: React.FC<WineProps> = ({ item }) => {
 
           <div className="font-light mb-4">
             {item?.description}{" "}
-            <span className="text-red-300 cursor-pointer underline underline-offset-4 font-bold">
+            {/* <span className="text-red-300 cursor-pointer underline underline-offset-4 font-bold">
               Läs mer på www.website.com
-            </span>
+            </span> */}
           </div>
 
           {item?.price && (

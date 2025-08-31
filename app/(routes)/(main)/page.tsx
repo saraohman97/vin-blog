@@ -7,8 +7,6 @@ import getBrands from "@/actions/getBrands";
 import getFlavors from "@/actions/getFlavors";
 import getCountries from "@/actions/getCountries";
 import getGrapes from "@/actions/getGrapes";
-// laktris: bg-[#1B1212]
-// black: bg-[#0b0b0b]
 
 interface WinesProps {
   searchParams: IWinesParams;

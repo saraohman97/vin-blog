@@ -48,8 +48,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         {countries.map((item) => (
           <CountryBadge
             key={item.id}
-            name={item.name}
-            selected={country === item.name}
+            name={item.label}
+            selected={country === item.label}
           />
         ))}
 
@@ -59,8 +59,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         {brands.map((item) => (
           <BrandBadge
             key={item.id}
-            name={item.name}
-            selected={brand === item.name}
+            name={item.label}
+            selected={brand === item.label}
           />
         ))}
 
@@ -70,8 +70,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         {grapes.map((item) => (
           <GrapeBadge
             key={item.id}
-            name={item.name}
-            selected={grape === item.name}
+            name={item.label}
+            selected={grape === item.label}
           />
         ))}
 
@@ -81,8 +81,8 @@ const Sidebar: React.FC<SidebarProps> = ({
         {flavors.map((item) => (
           <FlavorBadge
             key={item.id}
-            name={item.name}
-            selected={flavor === item.name}
+            name={item.label}
+            selected={flavor === item.label}
           />
         ))}
       </div>

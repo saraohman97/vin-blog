@@ -21,7 +21,7 @@ import { BiLabel } from "react-icons/bi";
 import Heading from "@/components/ui/heading";
 
 const formSchema = z.object({
-  name: z.string().min(1),
+  label: z.string().min(1),
 });
 
 export const FlavorForm = () => {
@@ -33,7 +33,7 @@ export const FlavorForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      label: "",
     },
   });
 
@@ -64,7 +64,7 @@ export const FlavorForm = () => {
           <div className="max-md:space-y-4 md:flex items-center gap-10 w-full">
             <FormField
               control={form.control}
-              name="name"
+              name="label"
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel className="flex gap-2">

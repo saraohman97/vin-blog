@@ -1,6 +1,6 @@
-import SingleWineClient from "./client";
 import React from "react";
 import { redirect } from "next/navigation";
+import SingleWineClient from "./client";
 
 interface WineIdProps {
   params: {

@@ -1,19 +1,21 @@
-import getCurrentUser from "@/actions/getCurrentUser";
-import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
-
+import prismadb from "@/lib/prismadb";
+import getCurrentUser from "@/actions/getCurrentUser";
 
 export async function POST(
     req: Request,
 ) {
-    try {
-        const currentUser = await getCurrentUser();
-        if (!currentUser) return NextResponse.error();
-        const body = await req.json();
+    const currentUser = await getCurrentUser();
+    if (!currentUser) return NextResponse.error();
+    const body = await req.json();
 
-        const { 
-            name
-        } = body;
+    const { 
+        label
+    } = body;
+
+    if (!label) {
+        return new NextResponse("Label is required", { status: 400 });
+    }
 
     Object.keys(body).forEach((value: any) => {
         if (!body[value]) {
@@ -21,17 +23,13 @@ export async function POST(
         }
     })
 
-
-        const country = await prismadb.country.create({
-            data: {
-                name,
+    const country = await prismadb.country.create({
+        data: {
+            label,
             userId: currentUser.id
-            }
-        });
 
-        return NextResponse.json(country);
-    } catch (error) {
-        console.log("COUNTRIES_POST", error);
-        return new NextResponse("Internal error", { status: 500 });
-    }
+        }
+    });
+
+    return NextResponse.json(country);
 };

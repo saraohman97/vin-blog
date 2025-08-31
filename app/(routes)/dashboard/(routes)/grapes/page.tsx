@@ -9,7 +9,7 @@ const GrapesPage = async () => {
 
   const formatted: GrapesColumn[] = grapes.map((item) => ({
     id: item.id,
-    name: item.name,
+    name: item.label,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));
   return (

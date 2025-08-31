@@ -8,7 +8,7 @@ const CountriesPage = async () => {
 
   const formatted: CountriesColumn[] = countries.map((item) => ({
     id: item.id,
-    name: item.name,
+    name: item.label,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));
   return (

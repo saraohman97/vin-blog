@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -71,7 +65,7 @@ model Wine {
 
 model Brand {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  label     String
   createdAt DateTime @default(now())
   userId    String   @db.ObjectId
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -79,7 +73,7 @@ model Brand {
 
 model Flavor {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  label     String
   createdAt DateTime @default(now())
   userId    String   @db.ObjectId
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -87,7 +81,7 @@ model Flavor {
 
 model Country {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  label     String
   createdAt DateTime @default(now())
   userId    String   @db.ObjectId
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -95,7 +89,7 @@ model Country {
 
 model Grape {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
+  label     String
   createdAt DateTime @default(now())
   userId    String   @db.ObjectId
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)

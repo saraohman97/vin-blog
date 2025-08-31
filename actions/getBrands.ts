@@ -1,4 +1,4 @@
-import prisma from '@/lib/prismadb'
+import prisma from '@/lib/prismadb';
 
 export default async function getBrands() {
     try {
@@ -6,10 +6,10 @@ export default async function getBrands() {
             orderBy: {
                 createdAt: 'desc'
             }
-        })
+        });
 
         return brands;
     } catch (error: any) {
         throw new Error(error);
-    }
-}
+    };
+};
