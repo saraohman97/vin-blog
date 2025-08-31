@@ -1,6 +1,6 @@
+import { redirect } from "next/navigation";
 import getCurrentUser from "@/actions/getCurrentUser";
 import Navbar from "./navbar";
-import { redirect } from "next/navigation";
 
 export default async function DashboardLayout({
   children,
@@ -8,7 +8,9 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser();
-  !currentUser && redirect("/login");
+    if (!currentUser) {
+    redirect("/");
+  }
 
   return (
     <div className="max-w-screen-2xl mx-auto min-h-screen bg-white">

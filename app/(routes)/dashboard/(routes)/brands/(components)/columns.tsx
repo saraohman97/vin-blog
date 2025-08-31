@@ -4,12 +4,17 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export type BrandsColumn = {
   id: string;
-  name: string;
+  label: string;
+  createdAt: string;
 };
 
 export const columns: ColumnDef<BrandsColumn>[] = [
   {
-    accessorKey: "name",
-    header: "Namn",
+    accessorKey: "label",
+    header: "Label",
+  },
+    {
+    accessorKey: "createdAt",
+    header: "Skapad",
   },
 ];

@@ -5,18 +5,14 @@ import { BrandsColumn } from "./(components)/columns";
 import getBrands from "@/actions/getBrands";
 
 const BrandsPage = async () => {
-  const brands = await getBrands();
+  const data = await getBrands();
 
-  const formatted: BrandsColumn[] = brands.map((item) => ({
+  const formatted: BrandsColumn[] = data.map((item) => ({
     id: item.id,
-    name: item.label,
+    label: item.label,
     createdAt: format(item.createdAt, "MMMM do, yyyy"),
   }));
-  return (
-    <>
-      <Client data={formatted} />
-    </>
-  );
+  return <Client data={formatted} />;
 };
 
 export default BrandsPage;
