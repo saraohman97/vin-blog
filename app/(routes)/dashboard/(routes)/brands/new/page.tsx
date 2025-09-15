@@ -25,7 +25,7 @@ const formSchema = z.object({
   label: z.string().min(1),
 });
 
-export const BrandPage = () => {
+const BrandPage = () => {
   const router = useRouter();
   const { toast } = useToast();
 
