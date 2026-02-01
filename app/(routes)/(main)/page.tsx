@@ -13,11 +13,11 @@ interface WinesProps {
 }
 
 export default async function Home({ searchParams }: WinesProps) {
-  // const wines = await getWines(searchParams);
-  // const brands = await getBrands();
-  // const flavors = await getFlavors();
-  // const countries = await getCountries();
-  // const grapes = await getGrapes();
+  const wines = await getWines(searchParams);
+  const brands = await getBrands();
+  const flavors = await getFlavors();
+  const countries = await getCountries();
+  const grapes = await getGrapes();
 
   return (
     <main>
@@ -46,7 +46,7 @@ export default async function Home({ searchParams }: WinesProps) {
           <div className="flex max-md:flex-col-reverse gap-10 items-start">
             {/* MAIN */}
             <div className="flex flex-wrap gap-10 w-full">
-              {/* {wines.length ? (
+              {wines.length ? (
                 <>
                   {wines.map((item) => {
                     return <WineItem key={item.id} item={item} />;
@@ -54,17 +54,17 @@ export default async function Home({ searchParams }: WinesProps) {
                 </>
               ) : (
                 "Inga inlägg"
-              )} */}
+              )}
             </div>
 
             {/* SIDEBAR */}
-            {/* <Sidebar
+            <Sidebar
               wines={wines}
               brands={brands}
               countries={countries}
               flavors={flavors}
               grapes={grapes}
-            /> */}
+            />
           </div>
 
           {/* FOOTER */}

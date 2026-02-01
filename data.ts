@@ -80,3 +80,10 @@ export const grapes = [
     { label: "Merlot" },
     { label: "Riesling" },
 ]
+
+export const wines = [
+    {
+        id: "",
+        label: ""
+    }
+]
